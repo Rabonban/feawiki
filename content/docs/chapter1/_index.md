@@ -122,9 +122,9 @@ Information regarding the boundary conditions includes the nodal degrees of free
 
 For the present simple example these are,
 
-$$ bcdof(1)=1 $$;
+$ bcdof(1)=1 $;
 
-$$ bcdof(2)=6 $$.
+$ bcdof(2)=6 $.
 
 where $bcdof$ contains the number of the constraint. The value of the constraints are given in $bcval$ in the following way,
 
@@ -169,9 +169,10 @@ Information on the constraints and boundary conditions is provided in arrays $bc
 //Figure I-3 Eliminating rows and columns associated with a DOF (Source: Arabyan A., Youssefi K., Enrique C.)//
 [[/=]]
 
-[[math label1]]
+$$
+\label{marker1}
 [k k]\{u\}=\{f f\}
-[[/math]]
+$$
 
 Applying the boundary conditions without destroying the symmetry:
 
@@ -197,7 +198,7 @@ u=kk\ff
 
 where $ kk $ is the stiffness matrix with applied constraints.
 
-Once the primary variable u is determined from the equation, the natural boundary conditions are found from
+Once the primary variable u is determined from the equation, the natural boundary conditions are found from $ref{marker1}$
 
 ````
 ff=kk*u
