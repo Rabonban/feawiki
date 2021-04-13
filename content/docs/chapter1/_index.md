@@ -140,7 +140,7 @@ Let $k$ and $f$ be the element stiffness matrix and force vector for any element
 
 MATLAB code:
 
-````
+````matlab
 edof=nnel*ndof; %edof=number of degrees of freedom per element
 for ir=1:edof; %loop for element stiffness rows
      irs=index(ir); %address for the global stiffness row
@@ -176,7 +176,7 @@ $$
 
 Applying the boundary conditions without destroying the symmetry:
 
-````
+````matlab
 for ic=1:2; %loop for two constaints
      id=bcdof(ic); %extract the degree of freedom for constraint
      val=bcval(ic); %extract the corresponding constrained value
