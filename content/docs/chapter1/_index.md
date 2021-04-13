@@ -104,7 +104,7 @@ Most of these input data are associated with the finite element mesh upon which 
 //Figure I-1 Mesh with 5 elements (Source:Young W. Kwon, Hyochoong Bang)//
 [[/=]]
 
-Having a simple example from reference [((bibcite kwon))], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ([[$ nnode $]]) is 6 and the number of total elements in the system ([[$ nel $]]) is 5. Only x coordinates are present since it is a one-dimensional problem. [[$ gcoord $]] denotes the array storing the coordinate values,
+Having a simple example from reference [((bibcite kwon))], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ([[$ nel $]]) is 5. Only x coordinates are present since it is a one-dimensional problem. [[$ gcoord $]] denotes the array storing the coordinate values,
 
 [[$ g \operatorname{coord}(1)=0.0 ; \ldots g \operatorname{coord}(2)=0.2 ; \ldots g \operatorname{coord}(3)=0.4 $]]
 
