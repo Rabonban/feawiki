@@ -122,9 +122,9 @@ Information regarding the boundary conditions includes the nodal degrees of free
 
 For the present simple example these are,
 
-[[$bcdof(1)=1$]];
+$bcdof(1)=1$;
 
-[[$bcdof(2)=6$]].
+$bcdof(2)=6$.
 
 where [[$bcdof$]] contains the number of the constraint. The value of the constraints are given in [[$bcval$]] in the following way,
 
