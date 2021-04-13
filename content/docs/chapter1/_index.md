@@ -104,17 +104,17 @@ Most of these input data are associated with the finite element mesh upon which 
 //Figure I-1 Mesh with 5 elements (Source:Young W. Kwon, Hyochoong Bang)//
 [[/=]]
 
-Having a simple example from reference [((bibcite kwon))], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ([[$ nel $]]) is 5. Only x coordinates are present since it is a one-dimensional problem. [[$ gcoord $]] denotes the array storing the coordinate values,
+Having a simple example from reference [bibcite kwon], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ($ nel $) is 5. Only x coordinates are present since it is a one-dimensional problem. $ gcoord $ denotes the array storing the coordinate values,
 
-[[$ g \operatorname{coord}(1)=0.0 ; \ldots g \operatorname{coord}(2)=0.2 ; \ldots g \operatorname{coord}(3)=0.4 $]]
+$ g \operatorname{coord}(1)=0.0 ; \ldots g \operatorname{coord}(2)=0.2 ; \ldots g \operatorname{coord}(3)=0.4 $
 
-[[$ g \operatorname{coord}(4)=0.6 ; \ldots g \operatorname{coord}(5)=0.8 ; \ldots g \operatorname{coord}(6)=1.0 $]]
+$ g \operatorname{coord}(4)=0.6 ; \ldots g \operatorname{coord}(5)=0.8 ; \ldots g \operatorname{coord}(6)=1.0 $
 
-in which the index in the bracket is the node number which goes from 1 to 6 and the size of the vector [[$ gcoord $]] is the same as the total number of nodes [[$ nnode $]]. The number of nodes per element is 2 ([[$ nnel $]]). The number of degrees of freedom per node ([[$ ndof $]]) is 1. The total number of degrees of freedom per system is [[$ sdof=nnode \times ndof $]].
+in which the index in the bracket is the node number which goes from 1 to 6 and the size of the vector $ gcoord $ is the same as the total number of nodes $ nnode $. The number of nodes per element is 2 ($ nnel $). The number of degrees of freedom per node ($ ndof $) is 1. The total number of degrees of freedom per system is $ sdof=nnode \times ndof $.
 
-Information concerning the nodal connectivity for each element is an input into the program, and is called element topology. This is the basis for the evaluation of element matrices and vectors and to evaluate and assemble the system matrices. For this example, this information can be acquired in an easy way if the node numbering and element numbering are sequential from one end of the domain to the other end; 𝑛𝑜𝑑𝑒𝑠 contains the node IDs in elements, it being a two-dimensional array. The first index stands for the number of element and the second one stands for node number associated to the element. For example, in the aforementioned problem, the [[$i^{t h}$]] element has two nodes, [[$i^{t h}$]] and the [[$(i+1)^{t h}$]] nodes; that is,
+Information concerning the nodal connectivity for each element is an input into the program, and is called element topology. This is the basis for the evaluation of element matrices and vectors and to evaluate and assemble the system matrices. For this example, this information can be acquired in an easy way if the node numbering and element numbering are sequential from one end of the domain to the other end; 𝑛𝑜𝑑𝑒𝑠 contains the node IDs in elements, it being a two-dimensional array. The first index stands for the number of element and the second one stands for node number associated to the element. For example, in the aforementioned problem, the $i^{t h}$ element has two nodes, $i^{t h}$ and the $(i+1)^{t h}$ nodes; that is,
 
-[[$nodes(i, 1)=i$]] and [[$\operatorname{nodes}(i, 2)=i+1$]] for [[$i=1,2,3,4,5$]]
+$nodes(i, 1)=i$]] and [[$\operatorname{nodes}(i, 2)=i+1$ for $i=1,2,3,4,5$
 
 The boundary of the element always has a null-size domain comparing to the element (in a 2D element the boundary line has no area). In 1D elements this is easy; we have to put the nodes at the boundaries of the elements, we prescribe a common value (1 or 0) at the same shape function.
 
@@ -126,21 +126,21 @@ $$ bcdof(1)=1 $$;
 
 $$ bcdof(2)=6 $$.
 
-where [[$bcdof$]] contains the number of the constraint. The value of the constraints are given in [[$bcval$]] in the following way,
+where $bcdof$ contains the number of the constraint. The value of the constraints are given in $bcval$ in the following way,
 
-[[$bcval(1)=0.0$]] and [[$bcval(2)=0.0$]].
+$bcval(1)=0.0$ and $bcval(2)=0.0$.
 
 + I.4 Assembly of element matrices and vectors
 
-In the simple example we have the element matrices and vector as functions of the length of each element. This leads to the length of each element being computed from the coordinate values of the nodes associated with the element: for ex. the [[$i^{t h}$]] element is associated with the [[$i^{t h}$]] and the [[$(i+1)^{t h}$]] nodes. The coordinate values of the nodes are [[$gcoord(i)$]] and [[$gcoord(i+1)$]]. As a result, the element length is equal to [[$gcoord(i+1)$]] − [[$gcoord(i)$]]. If the element length is the same for the whole domain, the length can be provided as an input.
+In the simple example we have the element matrices and vector as functions of the length of each element. This leads to the length of each element being computed from the coordinate values of the nodes associated with the element: for ex. the $i^{t h}$]] element is associated with the $i^{t h}$ and the $(i+1)^{t h}$ nodes. The coordinate values of the nodes are $gcoord(i)$ and $gcoord(i+1)$. As a result, the element length is equal to $gcoord(i+1)$ − $gcoord(i)$. If the element length is the same for the whole domain, the length can be provided as an input.
 
-Once we compute these matrices and vectors, they need to be assembled into the system matrix and vector. Information on where the element matrix and vector are to be in the global stiffness matrix and force vector. This information is obtained from the array [[$index$]] whose size equals to the number of degrees of freedom per element, i.e. 2 for this present example. Because each node has a single degree of freedom, the size of the array [[$ index $]] is the same as that for array [[$nodes$]].
+Once we compute these matrices and vectors, they need to be assembled into the system matrix and vector. Information on where the element matrix and vector are to be in the global stiffness matrix and force vector. This information is obtained from the array $index$ whose size equals to the number of degrees of freedom per element, i.e. 2 for this present example. Because each node has a single degree of freedom, the size of the array $ index $ is the same as that for array $nodes$.
 
-Let [[$k$]] and [[$f$]] be the element stiffness matrix and force vector for any element. [[$kk$]] and [[$ff$]] are the global stiffness matrix and force vector. The array [[$index$]] contains the degrees of freedom associated with the element. Then [[$k$]] and [[$f$]] are stored into [[$kk$]] and [[$ff$]] in the following way. This is repeated for every element.
+Let $k$ and $f$ be the element stiffness matrix and force vector for any element. $kk$ and $ff$ are the global stiffness matrix and force vector. The array $index$ contains the degrees of freedom associated with the element. Then $k$ and $f$ are stored into $kk$ and $ff$ in the following way. This is repeated for every element.
 
 MATLAB code:
 
-[[code]]
+````
 edof=nnel*ndof; %edof=number of degrees of freedom per element
 for ir=1:edof; %loop for element stiffness rows
      irs=index(ir); %address for the global stiffness row
@@ -157,11 +157,11 @@ end %end of row loop
 
 [[=]]
 //Figure I-2 Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)//
-[[/=]]
+````
 
 + I.5 Application of constraints
 
-Information on the constraints and boundary conditions is provided in arrays [[$bcdof$]] and [[$bcval$]] as seen in the previous subchapters. The global stiffness matrix is modified using this information. The size of the global stiffness matrix is equal to the total number of degrees of freedom in the current mechanical system. If the constraints are not applied to the system of equations the matrix equation will be singular so that it can not be inverted. In context of structural mechanics, this means that the matrix equation contains rigid body motions. If a constraint is applied to the [[$n^{t h}$]] degree of freedom in the matrix equation, the [[$n^{t h}$]] equation is replaced by the constraint equation. Constraining some nodes in the structure corresponds to applying boundary conditions.
+Information on the constraints and boundary conditions is provided in arrays $bcdof$ and $bcval$ as seen in the previous subchapters. The global stiffness matrix is modified using this information. The size of the global stiffness matrix is equal to the total number of degrees of freedom in the current mechanical system. If the constraints are not applied to the system of equations the matrix equation will be singular so that it can not be inverted. In context of structural mechanics, this means that the matrix equation contains rigid body motions. If a constraint is applied to the $n^{t h}$ degree of freedom in the matrix equation, the $n^{t h}$ equation is replaced by the constraint equation. Constraining some nodes in the structure corresponds to applying boundary conditions.
 
 [[=image Figure%20I-3 size="medium"]]
 
@@ -175,7 +175,7 @@ Information on the constraints and boundary conditions is provided in arrays [[$
 
 Applying the boundary conditions without destroying the symmetry:
 
-[[code]]
+````
 for ic=1:2; %loop for two constaints
      id=bcdof(ic); %extract the degree of freedom for constraint
      val=bcval(ic); %extract the corresponding constrained value
@@ -187,21 +187,21 @@ for ic=1:2; %loop for two constaints
      kk(id,id)=1; %set the idth diagonal to unity
      ff(id)=val; %put the constrained value in the column
 end
-[[/code]]
+````
 
 The modified matrix equation is solved for the primary nodal unknowns. In MATLAB application this is solved as
 
-[[code]]
+````
 u=kk\ff
-[[/code]]
+````
 
-where [[$ kk $]] is the stiffness matrix with applied constraints.
+where $ kk $ is the stiffness matrix with applied constraints.
 
 Once the primary variable u is determined from the equation, the natural boundary conditions are found from
 
-[[code]]
+````
 ff=kk*u
-[[/code]]
+````
 
 [[bibliography]]
 : kwon : Kwon, Young W., and Hyochoong Bang. The Finite Element Method Using MATLAB. CRC Press, 2000.
