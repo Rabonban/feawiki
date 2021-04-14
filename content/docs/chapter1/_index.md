@@ -63,7 +63,7 @@ Most of these input data are associated with the finite element mesh upon which 
 //Figure I-1 Mesh with 5 elements (Source:Young W. Kwon, Hyochoong Bang)//
 [[/=]]
 
-Having a simple example from reference [bibcite kwon], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ($ nel $) is 5. Only x coordinates are present since it is a one-dimensional problem. $ gcoord $ denotes the array storing the coordinate values,
+Having a simple example from reference [^1], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ($ nel $) is 5. Only x coordinates are present since it is a one-dimensional problem. $ gcoord $ denotes the array storing the coordinate values,
 
 $ g \operatorname{coord}(1)=0.0 ; \ldots g \operatorname{coord}(2)=0.2 ; \ldots g \operatorname{coord}(3)=0.4 $
 
@@ -89,7 +89,7 @@ where $bcdof$ contains the number of the constraint. The value of the constraint
 
 $bcval(1)=0.0$ and $bcval(2)=0.0$.
 
-+ I.4 Assembly of element matrices and vectors
+## I.4 Assembly of element matrices and vectors
 
 In the simple example we have the element matrices and vector as functions of the length of each element. This leads to the length of each element being computed from the coordinate values of the nodes associated with the element: for ex. the $i^{t h}$]] element is associated with the $i^{t h}$ and the $(i+1)^{t h}$ nodes. The coordinate values of the nodes are $gcoord(i)$ and $gcoord(i+1)$. As a result, the element length is equal to $gcoord(i+1)$ − $gcoord(i)$. If the element length is the same for the whole domain, the length can be provided as an input.
 
@@ -118,7 +118,7 @@ end %end of row loop
 //Figure I-2 Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)//
 
 
-+ I.5 Application of constraints
+## I.5 Application of constraints
 
 Information on the constraints and boundary conditions is provided in arrays $bcdof$ and $bcval$ as seen in the previous subchapters. The global stiffness matrix is modified using this information. The size of the global stiffness matrix is equal to the total number of degrees of freedom in the current mechanical system. If the constraints are not applied to the system of equations the matrix equation will be singular so that it can not be inverted. In context of structural mechanics, this means that the matrix equation contains rigid body motions. If a constraint is applied to the $n^{t h}$ degree of freedom in the matrix equation, the $n^{t h}$ equation is replaced by the constraint equation. Constraining some nodes in the structure corresponds to applying boundary conditions.
 
@@ -164,5 +164,5 @@ ff=kk*u
 ````
 
 
-Kwon, Young W., and Hyochoong Bang. The Finite Element Method Using MATLAB. CRC Press, 2000.
+[^1]: Kwon, Young W., and Hyochoong Bang. The Finite Element Method Using MATLAB. CRC Press, 2000.
 
