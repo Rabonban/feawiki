@@ -12,24 +12,24 @@ date: "2018-09-09T00:00:00Z"
 type: book  # Do not modify.
 ---
 
-# ## Flexibility
+## Flexibility
 
-# This feature can be used for publishing content such as:
+This feature can be used for publishing content such as:
 
-# * **Online courses**
-# * **Project or software documentation**
-# * **Tutorials**
-# * **Notes**
-#
-# The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
+* **Online courses**
+* **Project or software documentation**
+* **Tutorials**
+* **Notes**
 
-# ## Delete courses
+The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
 
-# **To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
+## Delete courses
 
-# ## Update site menu
+**To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
 
-# After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
+## Update site menu
+
+After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
 
 For example, if you delete this folder, you can remove the following from your menu configuration:
 
@@ -49,9 +49,9 @@ Or, if you are creating a software documentation site, you can rename the `cours
   weight = 50
 ```
 
-# ## Update the docs menu
+## Update the docs menu
 
-# If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename # the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.## # <NewFolderName>]`.
+If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename  the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.
 
 ## I.1 Overview
 
@@ -151,13 +151,13 @@ for ir=1:edof; %loop for element stiffness rows
 stiffness matrix
      end %endof column loop
 end %end of row loop
-[[/code]]
+````
 
 [[=image Figure%20I-2 size="medium"]]
 
 [[=]]
 //Figure I-2 Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)//
-````
+
 
 + I.5 Application of constraints
 
@@ -204,6 +204,6 @@ Once the primary variable u is determined from the equation, the natural boundar
 ff=kk*u
 ````
 
-[[bibliography]]
-: kwon : Kwon, Young W., and Hyochoong Bang. The Finite Element Method Using MATLAB. CRC Press, 2000.
-[[/bibliography]]
+
+Kwon, Young W., and Hyochoong Bang. The Finite Element Method Using MATLAB. CRC Press, 2000.
+
