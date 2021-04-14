@@ -12,24 +12,24 @@ date: "2018-09-09T00:00:00Z"
 type: book  # Do not modify.
 ---
 
-## Flexibility
+# ## Flexibility
 
-This feature can be used for publishing content such as:
+# This feature can be used for publishing content such as:
 
-* **Online courses**
-* **Project or software documentation**
-* **Tutorials**
-* **Notes**
+# * **Online courses**
+# * **Project or software documentation**
+# * **Tutorials**
+# * **Notes**
+#
+# The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
 
-The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
+# ## Delete courses
 
-## Delete courses
+# **To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
 
-**To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
+# ## Update site menu
 
-## Update site menu
-
-After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
+# After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
 
 For example, if you delete this folder, you can remove the following from your menu configuration:
 
@@ -49,11 +49,11 @@ Or, if you are creating a software documentation site, you can rename the `cours
   weight = 50
 ```
 
-## Update the docs menu
+# ## Update the docs menu
 
-If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.
+# If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename # the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.## # <NewFolderName>]`.
 
-+ I.1 Overview
+## I.1 Overview
 
 The basic program structure is presented here, followed by the general idea of FEM that can be applied for all the cases and types of mechanical problems. It discusses what input data are required in general, how the global matrix equation is assembled, how the boundary conditions are applied to the matrix equation and how it is solved.
 
@@ -63,7 +63,7 @@ The choice sits with the analyst. However, the exact solutions to the differenti
 
 The basic common principle of the finite element method in different approximation techniques is the selection of specific shape functions together by geometric and finitization.
 
-+ I.2 Program structure
+## I.2 Program structure
 
 To understand the fundamental concepts of the finite element method, it is essential to understand the skeleton of the program structure of finite element analysis. This chapter explains the basic structure of the FEM. Finite element analysis solves an engineering problem in six (or 7 if we are as detailed as possible) steps:
 
@@ -79,7 +79,7 @@ During the geometrical finitization step we divide the structure into elements (
 
 Geometrical finitzation is strongly connected to the mathematical finization, since next to the shape of the element we must decide about the number of nodes. **This influences:** the order of the analyzed differential equation (class of the continuity condition of the shape functions), the geometrical finitization (straight and curved elements), rate of convergence of the approximation. Next to the geometrical finitization and the selection of elements, we derive the global numbering of the nodes too.
 
-+ I.3 Input data
+## I.3 Input data
 
 The input parameters needed for a finite element analysis program are the following:
 
