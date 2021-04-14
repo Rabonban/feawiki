@@ -1,6 +1,6 @@
 ---
 # Title, summary, and page position.
-linktitle: Chapter 1
+linktitle: Chapter 1 - Finite element programming
 summary: First chapter about structure of a finite elemnt program.
 weight: 1
 icon: book
