@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-title = "FEAwiki - Learn finite elemnt analysis"
+title = "FEAwiki - Learn finite element analysis"
 
 # Hero image (optional). Enter filename of an image in the `static/media/` folder.
 hero_media = "book.svg"
@@ -41,7 +41,7 @@ hero_media = "book.svg"
   url = "docs/"
   label = "Get Started"
   icon_pack = "fas"
-  icon = "download"
+  icon = "fa-book"
   
 # [cta_alt]
 #  url = "docs/"
