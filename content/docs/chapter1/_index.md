@@ -57,6 +57,8 @@ The input parameters needed for a finite element analysis program are the follow
 
 Most of these input data are associated with the finite element mesh upon which the user decides. The mesh can be generated using an automated mesh-generating program, called the pre-processor, or manually. By type of element we refer the number of nodes per element, and the degrees of freedom a node has. If the same type of element is used over the whole continua, then we only need this information for one element. It may happen that we apply different shape functions, but in most of the cases it is enough to apply one type of element and shape function family.
 
+![alternative text for search engines](Figure I-1.png)
+
 {{< figure src="Figure I-1.png" caption="Mesh with 5 elements (Source:Young W. Kwon, Hyochoong Bang)" numbered="true" >}}
 
 Having a simple example from reference [^1], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ($ nel $) is 5. Only x coordinates are present since it is a one-dimensional problem. $ gcoord $ denotes the array storing the coordinate values,
