@@ -26,13 +26,13 @@ The basic common principle of the finite element method in different approximati
 
 To understand the fundamental concepts of the finite element method, it is essential to understand the skeleton of the program structure of finite element analysis. This chapter explains the basic structure of the FEM. Finite element analysis solves an engineering problem in six (or 7 if we are as detailed as possible) steps:
 
-Read input data of the already meshed geometry and allocate proper array sizes. (Geometrical finitisation).
-Calculate element stiffness matrices and load vectors for every element. Selection of specific shape functions (Mathematical finitization).
-Assemble element matrices and vectors into the global stiffness matrix and load vector.
-Apply constraints to the global stiffness matrix and load vector. (Compilation of the global equation system).
-Solve the matrix equation for the primary nodal variables (Determination of the unknown parameters, in our case displacements).
-Compute secondary variables.
-Plot/print desired results.
+1. Read input data of the already meshed geometry and allocate proper array sizes. (Geometrical finitisation).
+2. Calculate element stiffness matrices and load vectors for every element. Selection of specific shape functions (Mathematical finitization).
+3. Assemble element matrices and vectors into the global stiffness matrix and load vector.
+4. Apply constraints to the global stiffness matrix and load vector. (Compilation of the global equation system).
+5. Solve the matrix equation for the primary nodal variables (Determination of the unknown parameters, in our case displacements).
+6. Compute secondary variables.
+7. Plot/print desired results.
 
 During the geometrical finitization step we divide the structure into elements (hence the name finite elements). The shape and size of the element depends a lot on the structure type itself. A plate bending problem, will need a two-dimensional division such as triangular elements or rectangular elements (more complicated shapes are not popular). If the contour is curved, we can use elements with curved sides, also we can apply different type of elements too (triangles and rectangles).
 
