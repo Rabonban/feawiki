@@ -1,5 +1,5 @@
 ---
-title: Docs
+title: Intro
 type: book  # Do not modify.
 ---
 
