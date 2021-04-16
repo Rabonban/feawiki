@@ -57,7 +57,7 @@ The input parameters needed for a finite element analysis program are the follow
 
 Most of these input data are associated with the finite element mesh upon which the user decides. The mesh can be generated using an automated mesh-generating program, called the pre-processor, or manually. By type of element we refer the number of nodes per element, and the degrees of freedom a node has. If the same type of element is used over the whole continua, then we only need this information for one element. It may happen that we apply different shape functions, but in most of the cases it is enough to apply one type of element and shape function family.
 
-{{< figure src="Figure I-1.jpg" caption="Mesh with 5 elements (Source:Young W. Kwon, Hyochoong Bang)" numbered="true" >}}
+{{< figure src="FigureI1.jpg" caption="Mesh with 5 elements (Source:Young W. Kwon, Hyochoong Bang)" numbered="true" >}}
 
 Having a simple example from reference [^1], we use one type of element to present the steps. Five equal sized linear elements are used, therefore the total number of nodes ($ nnode $) is 6 and the number of total elements in the system ($ nel $) is 5. Only x coordinates are present since it is a one-dimensional problem. $ gcoord $ denotes the array storing the coordinate values,
 
@@ -108,13 +108,13 @@ stiffness matrix
 end %end of row loop
 ````
 
-{{< figure src="I-2.jpg" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
+{{< figure src="I2.jpg" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
 
 ## I.5 Application of constraints
 
 Information on the constraints and boundary conditions is provided in arrays $bcdof$ and $bcval$ as seen in the previous subchapters. The global stiffness matrix is modified using this information. The size of the global stiffness matrix is equal to the total number of degrees of freedom in the current mechanical system. If the constraints are not applied to the system of equations the matrix equation will be singular so that it can not be inverted. In context of structural mechanics, this means that the matrix equation contains rigid body motions. If a constraint is applied to the $n^{t h}$ degree of freedom in the matrix equation, the $n^{t h}$ equation is replaced by the constraint equation. Constraining some nodes in the structure corresponds to applying boundary conditions.
 
-{{< figure src="I-3.jpg" caption="Eliminating rows and columns associated with a DOF (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
+{{< figure src="I3.jpg" caption="Eliminating rows and columns associated with a DOF (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
 
 $$
 \label{marker1}
