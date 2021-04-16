@@ -169,9 +169,9 @@ If we want to assemble system matrices, then we need to compute [[$ \frac{\parti
 
 Rewriting these in matrix form:
 
-[[math label19]]
-\left\{\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}=\left[\begin{array}{ll}{\frac{\partial x}{\partial \xi}} & {\frac{\partial y}{\partial \xi}} \\ {\frac{\partial x}{\partial \eta}} & {\frac{\partial y}{\partial \eta}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}\right\}
-[[/math]]
+
+$$\left\{\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}=\left[\begin{array}{ll}{\frac{\partial x}{\partial \xi}} & {\frac{\partial y}{\partial \xi}} \\ {\frac{\partial x}{\partial \eta}} & {\frac{\partial y}{\partial \eta}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}\right\}
+$$
 
 The derivative shown of the left side column vector is called local derivative, while in the right side it is called global derivative. The square matrix is called the //Jacobian// and is denoted as for a 2-D case:
 
