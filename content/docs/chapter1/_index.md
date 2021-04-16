@@ -108,7 +108,7 @@ stiffness matrix
 end %end of row loop
 ````
 
-{{< figure src="I2.jpg" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
+{{< figure src="I2" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
 
 ## I.5 Application of constraints
 
