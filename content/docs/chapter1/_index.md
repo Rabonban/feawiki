@@ -102,13 +102,12 @@ for ir=1:edof; %loop for element stiffness rows
      ff(irs)=ff(irs)+f(ir); %assembly into the force vector
      for ic=1:edof; %loop for element stiffness columns
           ics=index(ic); %address for the global stiffness column
-          kk(irs,ics)=kk(irs,ics)+k(ir,ic); %assembly into the global
-stiffness matrix
+          kk(irs,ics)=kk(irs,ics)+k(ir,ic); %assembly into the global stiffness matrix
      end %endof column loop
 end %end of row loop
 ````
 
-{{< figure src="I2" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
+{{< figure src="I2.jpg" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" >}}
 
 ## I.5 Application of constraints
 
