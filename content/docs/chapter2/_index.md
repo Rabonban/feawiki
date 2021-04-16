@@ -179,6 +179,10 @@ $$\\[
 
 $${\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}=\left[\begin{array}{ll}{\frac{\partial x}{\partial \xi}} & {\frac{\partial y}{\partial \xi}} \\ {\frac{\partial x}{\partial \eta}} & {\frac{\partial y}{\partial \eta}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}}$$
 
+$$\gamma_{n} = \frac{ 
+\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
+\left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
+{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
 
 The derivative shown of the left side column vector is called local derivative, while in the right side it is called global derivative. The square matrix is called the //Jacobian// and is denoted as for a 2-D case:
 
