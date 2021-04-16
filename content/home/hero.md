@@ -39,7 +39,7 @@ hero_media = "book.svg"
 #   Remove a link/note by deleting a cta/note block.
 [cta]
   url = "docs/"
-  label = "Get Started"
+  label = " Get Started "
   icon_pack = "fas"
   icon = "book"
   
