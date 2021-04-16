@@ -21,7 +21,7 @@ hero_media = "book.svg"
   
   # Background gradient.
   gradient_start = "#4bb4e3"
-  gradient_end = "#008080"
+  gradient_end = " #687b93"
   # gradient_end = "#2b94c3"
  
   # Background image.
@@ -51,8 +51,6 @@ hero_media = "book.svg"
 # [cta_note]
 #  label = '<span class="js-github-release" data-repo="gcushen/hugo-academic">Show your product version here:<!-- V --></span>'
 +++
-
-# For [Academic Website Builder](https://sourcethemes.com/academic/).
 
 Made by practicing engineers for students and fellow engineers who are looking to broaden their knowledge of finite element analysis theory and pactice.
 
