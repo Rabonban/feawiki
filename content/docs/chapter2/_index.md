@@ -169,6 +169,13 @@ If we want to assemble system matrices, then we need to compute [[$ \frac{\parti
 
 Rewriting these in matrix form:
 
+$$\begin{equation}
+\left[B_{b}\right]=\left[\begin{array}{cccccccccc}
+\frac{\partial H_{1}}{\partial x} & 0 & 0 & \frac{\partial H_{2}}{\partial x} & 0 & 0 & \frac{\partial H_{3}}{\partial x} & 0 & 0 & \frac{\partial H_{4}}{\partial x} & 0 & 0 \\
+0 & \frac{\partial H_{1}}{\partial y} & 0 & 0 & \frac{\partial H_{2}}{\partial y} & 0 & 0 & \frac{\partial H_{3}}{\partial y} & 0 & 0 & \frac{\partial H_{4}}{\partial y} & 0 \\
+\frac{\partial H_{1}}{\partial y} & \frac{\partial H_{1}}{\partial x} & 0 & \frac{\partial H_{2}}{\partial y} & \frac{\partial H_{2}}{\partial x} & 0 & \frac{\partial H_{3}}{\partial y} & \frac{\partial H_{3}}{\partial x} & 0 & \frac{\partial H_{3}}{\partial y} & \frac{\partial H_{4}}{\partial x} & 0
+\end{array}\right]
+\end{equation}$$
 
 $${\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}=\left[\begin{array}{ll}{\frac{\partial x}{\partial \xi}} & {\frac{\partial y}{\partial \xi}} \\ {\frac{\partial x}{\partial \eta}} & {\frac{\partial y}{\partial \eta}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}}$$
 
