@@ -60,10 +60,10 @@ x=H_{1}(\xi) u_{1}+H_{2}(\xi) u_{2}
 If the shape functions are used for geometric mapping as well as nodal variable interpolation, the element is called isoparametric element.
 
 To compute [[$ \frac{d u}{d x} $]], which is necessary in most of the cases to compute element matrices, we use the chain rule as
-[[math label5]]
-\begin{array}{l}{\frac{d u}{d x}=\frac{d H_{1}(\xi)}{d x} u_{1}+\frac{d H_{2}(\xi)}{d x} u_{2}} \\ {=\frac{d H_{1}(\xi)}{d \xi} \frac{d \xi}{d x} u_{1}+\frac{d H_{2}(\xi)}{d \xi} \frac{d \xi}{d x} u_{2}}\end{array}
-[[/math]]
-where we require [[$ \frac{d \xi}{d x} $]] which is the inverse of [[$ \frac{d x}{d \xi} $]]. We can compute the latter from Eq.([[eref label3]]).
+
+$$\begin{array}{l}{\frac{d u}{d x}=\frac{d H_{1}(\xi)}{d x} u_{1}+\frac{d H_{2}(\xi)}{d x} u_{2}} \\ {=\frac{d H_{1}(\xi)}{d \xi} \frac{d \xi}{d x} u_{1}+\frac{d H_{2}(\xi)}{d \xi} \frac{d \xi}{d x} u_{2}}\end{array}$$
+
+where we require $ \frac{d \xi}{d x} $ which is the inverse of $ \frac{d x}{d \xi} $. We can compute the latter from Eq.([[eref label3]]).
 
 The //Jacobian// becomes
 
