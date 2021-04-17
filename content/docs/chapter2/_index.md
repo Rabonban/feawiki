@@ -86,10 +86,11 @@ Derivatives of shape functions with respect to //physical// coordinate system ar
 [[math label9]]
 \frac{d H_{2}(\xi)}{d x}=\frac{1}{x_{2}-x_{1}}=\frac{1}{h_{i}}
 [[/math]]
+<div style="text-align: right"> (19) </div>
 
-where [[$ h_{i}=\left(x_{2}-x_{1}\right) $]] is the element size in the //physical// coordinate system.
+where $ h_{i}=\left(x_{2}-x_{1}\right) $ is the element size in the _physical_ coordinate system.
 
-At this point, the isoparamteric element does not seem to have an advantage over the conventional element because the isoparamteric element requires more steps such as applying the chain rule and mapping. The major advantage of isoparametric elements comes when analytical integration to compute element stiffness matrices and system vectors is either complicated or impossible. This is when element shapes are not regular or differential equations are complex. Therefore, we need a numerical integration technique. Because each isoparamteric element is defined in terms of the normalized domain [[$\xi_{1}=-1$]] and [[$ \xi_{2}=1 $]], it is easier to apply any numerical integration technique.
+At this point, the isoparamteric element does not seem to have an advantage over the conventional element because the isoparamteric element requires more steps such as applying the chain rule and mapping. The major advantage of isoparametric elements comes when analytical integration to compute element stiffness matrices and system vectors is either complicated or impossible. This is when element shapes are not regular or differential equations are complex. Therefore, we need a numerical integration technique. Because each isoparamteric element is defined in terms of the normalized domain $\xi_{1}=-1$ and $ \xi_{2}=1 $, it is easier to apply any numerical integration technique.
 
 Triangular and quadrilateral finite elements make it possible for the direct assembly of the stiffness matrices and vectors of nodal forces. The calculation of the shape functions and assembly of the stiffness matrices for quadrilateral and higher order elements are achieved with using isoparametric elements.
 
@@ -97,19 +98,20 @@ The construction of trial solution over a finite element must satisfy the requir
 
 The compatibility principle, thus, can be formulated as:
 
-* Class [[$ C^{0} $]] problem, trial function must be continuous across the boundary of the elements, but not necessary its derivatives.
-* Class [[$ C^{1} $]] problem, both the trial function and its first-order derivatives must be continuous across the boundary of the elements, but not necessary its second-order derivatives.
-* Class [[$ C^{n} $]] problem, the trial function and its [[$ (n-1)^{\mathrm{th}} $]] order derivatives must be continuous across the boundary, but not necessary its [[$ n^{\text { th }} $]] order derivatives.
+* Class $ C^{0} $ problem, trial function must be continuous across the boundary of the elements, but not necessary its derivatives.
+* Class $ C^{1} $ problem, both the trial function and its first-order derivatives must be continuous across the boundary of the elements, but not necessary its second-order derivatives.
+* Class $ C^{n} $ problem, the trial function and its $ (n-1)^{\mathrm{th}} $ order derivatives must be continuous across the boundary, but not necessary its $ n^{\text { th }} $ order derivatives.
 
 When the size of an element shrinks to zero, the trail function must be able to represent:
 
-* Class [[$ C^{0} $]] problem, a constant value of the exact function as well as constant values of its first-order derivatives.
-* Class [[$ C^{1} $]] problem, a constant value of the exact function as well as constant values of its first- and second order derivatives.
-* Class [[$ C^{n} $]] problem, a constant value of the exact function as well as constant values of its derivatives up until the [[$ n^{\text { th }} $]] order.
+* Class $ C^{0} $ problem, a constant value of the exact function as well as constant values of its first-order derivatives.
+* Class $ C^{1} $ problem, a constant value of the exact function as well as constant values of its first- and second order derivatives.
+* Class $ C^{n} $ problem, a constant value of the exact function as well as constant values of its derivatives up until the $ n^{\text { th }} $ order.
 
 These conditions (compatibility and completeness) are sufficient to ensure that the finite element solution converges to the exact solution. However, the solutions obtained with the finite element method are only approximations to the exact solutions, therefore it is worthwhile to understand these principles to assess the accuracy or make a diagnosis of a finite element model.
 
-+ II.1 Quadrilateral elements
+# II.1 Quadrilateral elements
+---
 
 Shape functions for a bilinear isoparametric element are:
 
@@ -263,7 +265,8 @@ H_{8}=\frac{1}{2}(1-\xi)\left(1-\eta^{2}\right)
 [[=image Figure%20II-5.png size="small"]]
 //Figure II-5 Eight-node quadrilateral element in natural coordinate (Source: Young W. K., Hyochoong B.)//
 
-+ II.2 Triangular elements
+# II.2 Triangular elements
+---
 
 [[=image Figure%20II-6.png size="small"]]
 //Figure II-6 Triangular element in natural coordinate//
@@ -311,7 +314,8 @@ H_{2}=4 \eta(1-\xi-\eta)
 [[=image Figure%20II-7.png size="small"]]
 //Figure II-7 Quadratic six-node triangular element in natural coordinate (Source:Young K. W., Hyochoong B.)//
 
-+ II.3 Gauss integration
+# II.3 Gauss integration
+---
 
 When we use analytical integration to express the theorem of virtual work during the evaluation of the stiffness matrix of an element of for ex. a beam, we have an easy task, because the beam element is unidimensional. However, when the number of elements is large, and their geometrical shape is general, as is the case of most of the finite element application, the use of analytical integration becomes difficult or outright impossible, and furthermore not well suited for coding. In this case we can use numerical integration.
 
