@@ -13,6 +13,7 @@ type: book  # Do not modify.
 ---
 
 ## I.1 Overview
+---
 
 The basic program structure is presented here, followed by the general idea of FEM that can be applied for all the cases and types of mechanical problems. It discusses what input data are required in general, how the global matrix equation is assembled, how the boundary conditions are applied to the matrix equation and how it is solved.
 
@@ -23,6 +24,7 @@ The choice sits with the analyst. However, the exact solutions to the differenti
 The basic common principle of the finite element method in different approximation techniques is the selection of specific shape functions together by geometric and finitization.
 
 ## I.2 Program structure
+---
 
 To understand the fundamental concepts of the finite element method, it is essential to understand the skeleton of the program structure of finite element analysis. This chapter explains the basic structure of the FEM. Finite element analysis solves an engineering problem in six (or 7 if we are as detailed as possible) steps:
 
@@ -39,6 +41,7 @@ During the geometrical finitization step we divide the structure into elements (
 Geometrical finitzation is strongly connected to the mathematical finization, since next to the shape of the element we must decide about the number of nodes. **This influences:** the order of the analyzed differential equation (class of the continuity condition of the shape functions), the geometrical finitization (straight and curved elements), rate of convergence of the approximation. Next to the geometrical finitization and the selection of elements, we derive the global numbering of the nodes too.
 
 ## I.3 Input data
+---
 
 The input parameters needed for a finite element analysis program are the following:
 
@@ -86,6 +89,7 @@ where $bcdof$ contains the number of the constraint. The value of the constraint
 $bcval(1)=0.0$ and $bcval(2)=0.0$.
 
 ## I.4 Assembly of element matrices and vectors
+---
 
 In the simple example we have the element matrices and vector as functions of the length of each element. This leads to the length of each element being computed from the coordinate values of the nodes associated with the element: for ex. the $i^{t h}$]] element is associated with the $i^{t h}$ and the $(i+1)^{t h}$ nodes. The coordinate values of the nodes are $gcoord(i)$ and $gcoord(i+1)$. As a result, the element length is equal to $gcoord(i+1)$ − $gcoord(i)$. If the element length is the same for the whole domain, the length can be provided as an input.
 
@@ -110,6 +114,7 @@ end %end of row loop
 {{< figure src="I2.jpg" caption="Assembling the global stiffness matrix for a general two element system (Source: Arabyan A., Youssefi K., Enrique C.)" numbered="true" width="500">}}
 
 ## I.5 Application of constraints
+---
 
 Information on the constraints and boundary conditions is provided in arrays $bcdof$ and $bcval$ as seen in the previous subchapters. The global stiffness matrix is modified using this information. The size of the global stiffness matrix is equal to the total number of degrees of freedom in the current mechanical system. If the constraints are not applied to the system of equations the matrix equation will be singular so that it can not be inverted. In context of structural mechanics, this means that the matrix equation contains rigid body motions. If a constraint is applied to the $n^{t h}$ degree of freedom in the matrix equation, the $n^{t h}$ equation is replaced by the constraint equation. Constraining some nodes in the structure corresponds to applying boundary conditions.
 
