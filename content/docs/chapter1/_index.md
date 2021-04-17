@@ -72,7 +72,7 @@ in which the index in the bracket is the node number which goes from 1 to 6 and 
 
 Information concerning the nodal connectivity for each element is an input into the program, and is called element topology. This is the basis for the evaluation of element matrices and vectors and to evaluate and assemble the system matrices. For this example, this information can be acquired in an easy way if the node numbering and element numbering are sequential from one end of the domain to the other end; 𝑛𝑜𝑑𝑒𝑠 contains the node IDs in elements, it being a two-dimensional array. The first index stands for the number of element and the second one stands for node number associated to the element. For example, in the aforementioned problem, the $i^{t h}$ element has two nodes, $i^{t h}$ and the $(i+1)^{t h}$ nodes; that is,
 
-$nodes(i, 1)=i$]] and [[$\operatorname{nodes}(i, 2)=i+1$ for $i=1,2,3,4,5$
+$nodes(i, 1)=i$ and $\operatorname{nodes}(i, 2)=i+1$ for $i=1,2,3,4,5$
 
 The boundary of the element always has a null-size domain comparing to the element (in a 2D element the boundary line has no area). In 1D elements this is easy; we have to put the nodes at the boundaries of the elements, we prescribe a common value (1 or 0) at the same shape function.
 
@@ -91,7 +91,7 @@ $bcval(1)=0.0$ and $bcval(2)=0.0$.
 ## I.4 Assembly of element matrices and vectors
 ---
 
-In the simple example we have the element matrices and vector as functions of the length of each element. This leads to the length of each element being computed from the coordinate values of the nodes associated with the element: for ex. the $i^{t h}$]] element is associated with the $i^{t h}$ and the $(i+1)^{t h}$ nodes. The coordinate values of the nodes are $gcoord(i)$ and $gcoord(i+1)$. As a result, the element length is equal to $gcoord(i+1)$ − $gcoord(i)$. If the element length is the same for the whole domain, the length can be provided as an input.
+In the simple example we have the element matrices and vector as functions of the length of each element. This leads to the length of each element being computed from the coordinate values of the nodes associated with the element: for ex. the $i^{t h}$ element is associated with the $i^{t h}$ and the $(i+1)^{t h}$ nodes. The coordinate values of the nodes are $gcoord(i)$ and $gcoord(i+1)$. As a result, the element length is equal to $gcoord(i+1)$ − $gcoord(i)$. If the element length is the same for the whole domain, the length can be provided as an input.
 
 Once we compute these matrices and vectors, they need to be assembled into the system matrix and vector. Information on where the element matrix and vector are to be in the global stiffness matrix and force vector. This information is obtained from the array $index$ whose size equals to the number of degrees of freedom per element, i.e. 2 for this present example. Because each node has a single degree of freedom, the size of the array $ index $ is the same as that for array $nodes$.
 
@@ -149,7 +149,7 @@ u=kk\ff
 
 where $ kk $ is the stiffness matrix with applied constraints.
 
-Once the primary variable u is determined from the equation, the natural boundary conditions are found from $ref{marker1}$
+Once the primary variable u is determined from the equation, the natural boundary conditions are found from 
 
 ````
 ff=kk*u
