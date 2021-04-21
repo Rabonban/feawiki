@@ -12,10 +12,6 @@ date: "2018-09-09T00:00:00Z"
 type: book  # Do not modify.
 ---
 
-{{% callout warning %}}
-Under construction!
-{{% /callout %}}
-
 The finite element method is frequently (if not the most) used in solving engineering problems, capable of solving various levels of shape, boundary and loading conditions with an approximate result having an acceptable level of divergence from the actual solution. When using this method, a large number of unknowns are present, which means that computer programs are needed to solve the equations. MATLAB programming language is well-suited solution for this problem.
 Following the steps of FEA building the framework for the linear analysis of plate/shell elements leads to more straightforward approach.
 The MATLAB code presented here is compiled for a quadrant of a plate element loaded transversally by a point load. This relatively simple problem was proposed to explain the structure of a FEM software by the shear simplicity that involves clarifying the programming part. This problem and its derivatives will follow the reader through the thesis, appearing in the nonlinear analysis and GUI design, which hopefully will make the task of presenting a FEM framework and comprehending the problems around it easier.
