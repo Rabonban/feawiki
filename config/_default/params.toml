@@ -50,6 +50,8 @@ org_name = "FEAwiki"
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
 description = "FEAwiki -Learn finite element."
 
+i_am_a_sponsor = true
+
 ############################
 ## Site Features
 ############################
