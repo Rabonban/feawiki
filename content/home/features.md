@@ -18,19 +18,19 @@ subtitle = "Finite element analysis can be _easy_ ✨"
   icon = "book-open"
   icon_pack = "fas"
   name = "Comprehensible Theory"
-  description = "Compiled *by* engineers *for* engineers. Although the topic is a deep one, more practical approach is used."
+  description = "Compiled **by** engineers **for** engineers. Although the topic is a deep one, more practical approach is used."
   
 [[feature]]
   icon = "question"
   icon_pack = "fas"
-  name = "Deep dive into MATLAB syntax"
+  name = "Deep dive into MATLAB:tm: syntax"
   description = "MATLAB offers a perfect tool to visualize finite element analysis method."  
   
 [[feature]]
   icon = "list-alt"
   icon_pack = "fas"
-  name = "Make your own FEA solver with MATLAB"
-  description = "Using MATLAB App Designer create a professional looking FEA solver without having to be a software developer."
+  name = "Make your own FEA solver with MATLAB:tm:"
+  description = "Using MATLAB App Designer:tm: create a professional looking FEA solver without having to be a software developer."
 
 # Uncomment to use emoji icons.
 # [[feature]]

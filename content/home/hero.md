@@ -54,4 +54,3 @@ hero_media = "book.svg"
 
 Made by practicing engineers for students and fellow engineers who are looking to broaden their knowledge of finite element analysis theory and pactice.
 
-# <span style="text-shadow: none;"><a class="github-button" href="https://github.com/gcushen/hugo-academic" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span>

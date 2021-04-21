@@ -1,7 +1,7 @@
 ---
 # Title, summary, and page position.
 linktitle: Chapter 2 - Isoparametric elements
-summary: Learn how to use Academic's docs layout for publishing online courses, software documentation, and tutorials.
+summary: Learn what isoparametric elements are.
 weight: 1
 icon: book
 icon_pack: fas
@@ -14,79 +14,76 @@ type: book  # Do not modify.
 
 Isoparametric elements are introduced in this chapter because these elements are very important to application of complex shapes of domains. A numerical integration technique called Gauss-Lagrange is also discussed along with isoparametric elements.
 
-Isoparametric elements use mathematical mapping from one coordinate system into another coordinate system, with the first being called the //physical//- and the second one //natural// coordinate system. The problem topology is provided in the physical coordinate system (can be called $xyz$-axis). Element shape functions are defined in terms of the //natural// coordinate system, denoted with $\xi \eta \zeta$-axis. Thus, mapping is needed between the two coordinate systems.
+Isoparametric elements use mathematical mapping from one coordinate system into another coordinate system, with the first being called the _physical_ - and the second one _natural_ coordinate system. The problem topology is provided in the physical coordinate system (can be called $xyz$-axis). Element shape functions are defined in terms of the _natural_ coordinate system, denoted with $\xi \eta \zeta$-axis. Thus, **mapping** is needed between the two coordinate systems.
 
-First, we discuss a one-dimensional isoparametric element to discuss the basics of isoparametric elements. Multi-dimensional elements will be discussed later. Shape functions for the isoparametric elements are given as terms of //natural// coordinates as seen in the following figure. Nodes are located at $\xi_{1}=-1$ and $\xi_{2}=1$. While the positions are arbitrary, selecting the previous values is useful, because the //natural// coordinate system is normalized between −1 and 1.
+First, we discuss a one-dimensional isoparametric element to discuss the basics of isoparametric elements. Multi-dimensional elements will be discussed later. Shape functions for the isoparametric elements are given as terms of _natural_ coordinates as seen in the following figure. Nodes are located at $\xi_{1}=-1$ and $\xi_{2}=1$. While the positions are arbitrary, selecting the previous values is useful, because the _natural_ coordinate system is normalized between −1 and 1.
 
+{{< figure src="Figure%20II-1.png" caption="Element in natural coordinate" numbered="true" width="300">}}
 
+{{< figure src="Figure%20II-2.png" caption="Element in physical coordinate" numbered="true" width="300">}}
 
-[[div]]
-[[=image Figure%20II-1.png size="small"]]
-//Figure II-1 Element in natural coordinate//
-[[/div]]
-
-[[div]]
-[[=image Figure%20II-2.png size="small"]]
-//Figure II-2 Element in physical coordinate//
-
-[[/div]]
 
 The shape function is written as
 
+<a name="label1"></a>
 
 $$H_{1}(\xi)=\frac{1}{2}(1-\xi)$$
-
+<div style="text-align: right"> (1) </div>
 
 and
 
+<a name="label2"></a>
 
 $$H_{2}(\xi)=\frac{1}{2}(1+\xi)$$
+<div style="text-align: right"> (2) </div>
 
+The physical linear element may be located at any position in the _physical_ coordinate system. The element has two coordinate values $x_{1}$ and $x_{2}$, with two nodal variables $u_{1}$ and $u_{2}$.
 
-The physical linear element may be located at any position in the physical coordinate system. The element has two coordinate values [[$x_{1}$]] and [[$x_{2}$]], with two nodal variables [[$u_{1}$]] and [[$u_{2}$]].
+Any point between $\xi_{1}=-1$ and $\xi_{2}=1$ in the _natural_ coordinate system can be mapped onto a point between $x_{1}$ and $x_{2}$ in the _physical_ coordinate system using the shape functions defined in Eqs. ([1](#label1)) and ([2](#label2)).
 
-Any point between [[$\xi_{1}=-1$]] and [[$\xi_{2}=1$]] in the //natural// coordinate system can be mapped onto a point between [[$x_{1}$]] and [[$x_{2}$]] in the //physical// coordinate system using the shape functions defined in Eqs. ([[eref label1]]) and ([[eref label2]]).
+<a name="label3"></a>
+$$x=H_{1}(\xi) x_{1}+H_{2}(\xi) x_{2}$$
+<div style="text-align: right"> (3) </div>
 
-[[math label3]]
-x=H_{1}(\xi) x_{1}+H_{2}(\xi) x_{2}
-[[/math]]
+The shape functions are also used to interpolate the variable $ u $ within the element as
 
-The shape functions are also used to interpolate the variable [[$ u $]] within the element as
+<a name="label4"></a>
+$$x=H_{1}(\xi) u_{1}+H_{2}(\xi) u_{2}$$
+<div style="text-align: right"> (4) </div>
 
-[[math label4]]
-x=H_{1}(\xi) u_{1}+H_{2}(\xi) u_{2}
-[[/math]]
-
+{{% callout note %}}
 If the shape functions are used for geometric mapping as well as nodal variable interpolation, the element is called isoparametric element.
+{{% /callout %}}
 
-To compute [[$ \frac{d u}{d x} $]], which is necessary in most of the cases to compute element matrices, we use the chain rule as
+To compute $ \frac{d u}{d x} $, which is necessary in most of the cases to compute element matrices, we use the chain rule as
 
-$$\begin{array}{l}{\frac{d u}{d x}=\frac{d H_{1}(\xi)}{d x} u_{1}+\frac{d H_{2}(\xi)}{d x} u_{2}} \\ {=\frac{d H_{1}(\xi)}{d \xi} \frac{d \xi}{d x} u_{1}+\frac{d H_{2}(\xi)}{d \xi} \frac{d \xi}{d x} u_{2}}\end{array}$$
+<a name="label5"></a>
+$$\begin{array}{l}{\frac{d u}{d x}=\frac{d H_{1}(\xi)}{d x} u_{1}+\frac{d H_{2}(\xi)}{d x} u_{2}} \\\\ {=\frac{d H_{1}(\xi)}{d \xi} \frac{d \xi}{d x} u_{1}+\frac{d H_{2}(\xi)}{d \xi} \frac{d \xi}{d x} u_{2}}\end{array}$$
+<div style="text-align: right"> (5) </div>
 
-where we require $ \frac{d \xi}{d x} $ which is the inverse of $ \frac{d x}{d \xi} $. We can compute the latter from Eq.([[eref label3]]).
+where we require $ \frac{d \xi}{d x} $ which is the inverse of $ \frac{d x}{d \xi} $. We can compute the latter from Eq.([3](#label3)).
 
-The //Jacobian// becomes
+The _Jacobian_ becomes
 
-[[math label6]]
-J=\frac{d x}{d \xi}=\frac{d H_{1}(\xi)}{d \xi} x_{1}+\frac{d H_{2}(\xi)}{d \xi} x_{2}=\frac{1}{2}\left(x_{2}-x_{1}\right)
-[[/math]]
+<a name="label6"></a>
+$$J=\frac{d x}{d \xi}=\frac{d H_{1}(\xi)}{d \xi} x_{1}+\frac{d H_{2}(\xi)}{d \xi} x_{2}=\frac{1}{2}\left(x_{2}-x_{1}\right)$$
+<div style="text-align: right"> (6) </div>
 
-Substituting Eq. ([[eref label6]]) into Eq. ([[eref label5]]) results in
+Substituting Eq. ([6](#label6)) into Eq. ([5](#label5)) results in
 
-[[math label7]]
-\frac{d u}{d x}=-\frac{1}{x_{2}-x_{1}} u_{1}+\frac{1}{x_{2}-x_{1}} u_{2}
-[[/math]]
+<a name="label7"></a>
+$$\frac{d u}{d x}=-\frac{1}{x_{2}-x_{1}} u_{1}+\frac{1}{x_{2}-x_{1}} u_{2}$$
+<div style="text-align: right"> (7) </div>
 
-Derivatives of shape functions with respect to //physical// coordinate system are
+Derivatives of shape functions with respect to _physical_ coordinate system are
 
-[[math label8]]
-\frac{d H_{1}(\xi)}{d x}=-\frac{1}{x_{2}-x_{1}}=-\frac{1}{h_{i}}
-[[/math]]
+<a name="label8"></a>
+$$\frac{d H_{1}(\xi)}{d x}=-\frac{1}{x_{2}-x_{1}}=-\frac{1}{h_{i}}$$
+<div style="text-align: right"> (8) </div>
 
-[[math label9]]
-\frac{d H_{2}(\xi)}{d x}=\frac{1}{x_{2}-x_{1}}=\frac{1}{h_{i}}
-[[/math]]
-<div style="text-align: right"> (19) </div>
+<a name="label9"></a>
+$$\frac{d H_{2}(\xi)}{d x}=\frac{1}{x_{2}-x_{1}}=\frac{1}{h_{i}}$$
+<div style="text-align: right"> (9) </div>
 
 where $ h_{i}=\left(x_{2}-x_{1}\right) $ is the element size in the _physical_ coordinate system.
 
@@ -110,211 +107,197 @@ When the size of an element shrinks to zero, the trail function must be able to 
 
 These conditions (compatibility and completeness) are sufficient to ensure that the finite element solution converges to the exact solution. However, the solutions obtained with the finite element method are only approximations to the exact solutions, therefore it is worthwhile to understand these principles to assess the accuracy or make a diagnosis of a finite element model.
 
-# II.1 Quadrilateral elements
+## II.1 Quadrilateral elements
 ---
 
 Shape functions for a bilinear isoparametric element are:
 
-[[math label10]]
-H_{1}(\xi, \eta)=\frac{1}{4}(1-\xi)(1-\eta)
-[[/math]]
+<a name="label10"></a>
+$$H_{1}(\xi, \eta)=\frac{1}{4}(1-\xi)(1-\eta)$$
+<div style="text-align: right"> (10) </div>
 
-[[math label11]]
-H_{2}(\xi, \eta)=\frac{1}{4}(1+\xi)(1-\eta)
-[[/math]]
+<a name="label11"></a>
+$$H_{2}(\xi, \eta)=\frac{1}{4}(1+\xi)(1-\eta)$$
+<div style="text-align: right"> (11) </div>
 
-[[math label12]]
-H_{3}(\xi, \eta)=\frac{1}{4}(1+\xi)(1+\eta)
-[[/math]]
+<a name="label12"></a>
+$$H_{3}(\xi, \eta)=\frac{1}{4}(1+\xi)(1+\eta)$$
+<div style="text-align: right"> (12) </div>
 
-[[math label13]]
-H_{4}(\xi, \eta)=\frac{1}{4}(1-\xi)(1+\eta)
-[[/math]]
+<a name="label13"></a>
+$$H_{4}(\xi, \eta)=\frac{1}{4}(1-\xi)(1+\eta)$$
+<div style="text-align: right"> (13) </div>
 
-The shape functions are defined in terms of normalized //natural// domain [[$ -1 \leq \xi \leq 1 $]] and [[$ -1 \leq \eta \leq 1 $]].
+The shape functions are defined in terms of normalized _natural_ domain $ -1 \leq \xi \leq 1 $ and $ -1 \leq \eta \leq 1 $.
 
-The element shape is a square in the //natural// coordinate system, it can be mapped into a general quadrilateral shape with distortions. When this is undertaken, the relative positions of nodal points should be consistent between the two elements in the //natural// and //physical// domains. In other words, successive path in counter clockwise direction should be the same for node numbers should be the same in //natural// and //physical// coordinates. A point [[$ (\xi, \eta) $]] within the natural element is mapped into a point [[$ (x, y $]]) within the physical element using the shape functions:
+The element shape is a square in the _natural_ coordinate system, it can be mapped into a general quadrilateral shape with distortions. When this is undertaken, the relative positions of nodal points should be consistent between the two elements in the _natural_ and _physical_ domains. In other words, successive path in counter clockwise direction should be the same for node numbers should be the same in _natural_ and _physical_ coordinates. A point $ (\xi, \eta) $ within the natural element is mapped into a point $ (x, y) $ within the physical element using the shape functions:
 
-[[math label14]]
-x=\sum_{i=1}^{4} H_{i}(\xi, \eta) x_{i}
-[[/math]]
+<a name="label14"></a>
+$$x=\sum_{i=1}^{4} H_{i}(\xi, \eta) x_{i}$$
+<div style="text-align: right"> (14) </div>
 
-[[math label15]]
-y=\sum_{i=1}^{4} H_{i}(\xi, \eta) y_{i}
-[[/math]]
+<a name="label15"></a>
+$$y=\sum_{i=1}^{4} H_{i}(\xi, \eta) y_{i}$$
+<div style="text-align: right"> (15) </div>
 
-where [[$ x_{i} $]] and [[$ y_{i} $]] are the coordinate values of the [[$ i^{t h} $]] node.
+where $ x_{i} $ and $ y_{i} $ are the coordinate values of the $ i^{t h} $ node.
 
 Any physical variable can be interpolated using the same shape functions:
 
-[[math label16]]
-u=\sum_{i=1}^{4} H_{i}(\xi, \eta) u_{i}
-[[/math]]
+<a name="label16"></a>
+$$u=\sum_{i=1}^{4} H_{i}(\xi, \eta) u_{i}$$
+<div style="text-align: right"> (16) </div>
 
-where [[$ u_{i} $]] is the nodal variable of [[$ i^{\mathrm{th}} $]] node.
+where $ u_{i} $ is the nodal variable of $ i^{\mathrm{th}} $ node.
 
-[[=image Figure%20II-3.png size="small"]]
-//Figure II-3 Bilinear element in natural coordinate (Source: Kwon Y. W., Hyochoong Bang)//
+{{< figure src="Figure%20II-3.png" caption="Bilinear element in natural coordinate (Source: Kwon Y. W., Hyochoong Bang)" numbered="true" width="300">}}
 
-[[=image Figure%20II-4.png size="small"]]
-//Figure II-4 Bilinear element in physical coordinate//
+{{< figure src="Figure%20II-4.png" caption="Bilinear element in physical coordinate (Source: Kwon Y. W., Hyochoong Bang)" numbered="true" width="300">}}
 
-If we want to assemble system matrices, then we need to compute [[$ \frac{\partial H_{i}(\xi, \eta)}{\partial x} $]] and [[$ \frac{\partial H_{i}(\xi, \eta)}{\partial y} $]]. In order to do it, we use the chain again.
 
-[[math label17]]
-\frac{\partial}{\partial \xi}=\frac{\partial}{\partial x} \frac{\partial x}{\partial \xi}+\frac{\partial}{\partial y} \frac{\partial y}{\partial \xi}
-[[/math]]
+If we want to assemble system matrices, then we need to compute $ \frac{\partial H_{i}(\xi, \eta)}{\partial x} $ and $ \frac{\partial H_{i}(\xi, \eta)}{\partial y} $. In order to do it, we use the chain again.
 
-[[math label18]]
-\frac{\partial}{\partial \eta}=\frac{\partial}{\partial x} \frac{\partial x}{\partial \eta}+\frac{\partial}{\partial y} \frac{\partial y}{\partial \eta}
-[[/math]]
+<a name="label17"></a>
+$$\frac{\partial}{\partial \xi}=\frac{\partial}{\partial x} \frac{\partial x}{\partial \xi}+\frac{\partial}{\partial y} \frac{\partial y}{\partial \xi}$$
+<div style="text-align: right"> (17) </div>
+
+<a name="label18"></a>
+$$\frac{\partial}{\partial \eta}=\frac{\partial}{\partial x} \frac{\partial x}{\partial \eta}+\frac{\partial}{\partial y} \frac{\partial y}{\partial \eta}$$
+<div style="text-align: right"> (18) </div>
 
 Rewriting these in matrix form:
 
-$$\\[
-\left[B_{b}\right]=\left[\begin{array}{cccccccccc}
-\frac{\partial H_{1}}{\partial x} & 0 & 0 & \frac{\partial H_{2}}{\partial x} & 0 & 0 & \frac{\partial H_{3}}{\partial x} & 0 & 0 & \frac{\partial H_{4}}{\partial x} & 0 & 0 \\
-0 & \frac{\partial H_{1}}{\partial y} & 0 & 0 & \frac{\partial H_{2}}{\partial y} & 0 & 0 & \frac{\partial H_{3}}{\partial y} & 0 & 0 & \frac{\partial H_{4}}{\partial y} & 0 \\
-\frac{\partial H_{1}}{\partial y} & \frac{\partial H_{1}}{\partial x} & 0 & \frac{\partial H_{2}}{\partial y} & \frac{\partial H_{2}}{\partial x} & 0 & \frac{\partial H_{3}}{\partial y} & \frac{\partial H_{3}}{\partial x} & 0 & \frac{\partial H_{3}}{\partial y} & \frac{\partial H_{4}}{\partial x} & 0
-\end{array}\right]
-\\]$$
+<a name="label19"></a>
+{{< figure src="Eq19.png" numbered="false">}}
+<div style="text-align: right"> (19) </div>
 
-$${\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}=\left[\begin{array}{ll}{\frac{\partial x}{\partial \xi}} & {\frac{\partial y}{\partial \xi}} \\ {\frac{\partial x}{\partial \eta}} & {\frac{\partial y}{\partial \eta}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}}$$
+The derivative shown of the left side column vector is called local derivative, while in the right side it is called global derivative. The square matrix is called the _Jacobian_ and is denoted as for a 2-D case:
 
-$$\gamma_{n} = \frac{ 
-\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
-\left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
-{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
+<a name="label20"></a>
+{{< figure src="Eq20.png" numbered="false">}}
+<div style="text-align: right"> (20) </div>
 
-The derivative shown of the left side column vector is called local derivative, while in the right side it is called global derivative. The square matrix is called the //Jacobian// and is denoted as for a 2-D case:
+The _Jacobian_ can be easily extended for three-dimensional domain too.
 
-[[math label20]]
-[J]=\left[\begin{array}{ll}{J_{11}} & {J_{12}} \\ {J_{21}} & {J_{22}}\end{array}\right]=\left[\begin{array}{cc}{\frac{\partial x}{\partial \xi}} & {\frac{\partial y}{\partial \xi}} \\ {\frac{\partial x}{\partial \eta}} & {\frac{\partial y}{\partial \eta}}\end{array}\right]
-[[/math]]
+The inverse of the _Jacobian_ is denoted as:
 
-The //Jacobian// can be easily extended for three-dimensional domain too.
+<a name="label21"></a>
+{{< figure src="Eq21.png" numbered="false">}}
+<div style="text-align: right"> (21) </div>
 
-The inverse of the //Jacobian// is denoted as:
+We can rewrite Eq. ([19](#label19)) as
 
-[[math label21]]
-[R]=[J]^{-1}=\left[\begin{array}{ll}{R_{11}} & {R_{12}} \\ {R_{21}} & {R_{22}}\end{array}\right]
-[[/math]]
+<a name="label22"></a>
+{{< figure src="Eq22.png" numbered="false">}}
+<div style="text-align: right"> (22) </div>
 
-We can rewrite Eq. ([[eref label19]]) as
+Derivatives of the shape functions with respect to $x$ and $y$ can be obtained from the above equation:
 
-[[math label22]]
-\left\{\begin{array}{l}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}\right\}=\left[\begin{array}{ll}{R_{11}} & {R_{12}} \\ {R_{21}} & {R_{22}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}
-[[/math]]
+<a name="label23"></a>
+{{< figure src="Eq23.png" numbered="false">}}
+<div style="text-align: right"> (23) </div>
 
-Derivatives of the shape functions with respect to x and y can be obtained from the above equation:
-
-[[math label23]]
-\left\{\begin{array}{l}{\frac{\partial H_{i}}{\partial x}} \\ {\frac{\partial H_{i}}{\partial y}}\end{array}\right\}=\left[\begin{array}{cc}{R_{11}} & {R_{12}} \\ {R_{21}} & {R_{22}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial H_{i}}{\partial \xi}} \\ {\frac{\partial H_{i}}{\partial \eta}}\end{array}\right\}
-[[/math]]
-
-To be able to invert the //Jacobian//, its determinant cannot be 0 or negative. This can be achieved by using counter-clockwise order of nodes.
+To be able to invert the _Jacobian_, its determinant cannot be 0 or negative. This can be achieved by using counter-clockwise order of nodes.
 
 Other popular quadrilateral elements are eight-node isoparametric elements. Their shape functions are:
 
-[[math label24]]
-\left\{\begin{array}{l}{\frac{\partial}{\partial x}} \\ {\frac{\partial}{\partial y}}\end{array}\right\}=\left[\begin{array}{ll}{R_{11}} & {R_{12}} \\ {R_{21}} & {R_{22}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial}{\partial \xi}} \\ {\frac{\partial}{\partial \eta}}\end{array}\right\}
-[[/math]]
+<a name="label24"></a>
+{{< figure src="Eq24.png" numbered="false">}}
+<div style="text-align: right"> (24) </div>
 
-Derivatives of the shape functions with respect to x and y can be obtained from the above equation:
+Derivatives of the shape functions with respect to $x$ and $y$ can be obtained from the above equation:
 
-[[math label25]]
-\left\{\begin{array}{l}{\frac{\partial H_{i}}{\partial x}} \\ {\frac{\partial H_{i}}{\partial y}}\end{array}\right\}=\left[\begin{array}{cc}{R_{11}} & {R_{12}} \\ {R_{21}} & {R_{22}}\end{array}\right]\left\{\begin{array}{c}{\frac{\partial H_{i}}{\partial \xi}} \\ {\frac{\partial H_{i}}{\partial \eta}}\end{array}\right\}
-[[/math]]
+<a name="label25"></a>
+{{< figure src="Eq25.png" numbered="false">}}
+<div style="text-align: right"> (25) </div>
 
-To be able to invert the //Jacobian//, its determinant cannot be 0 or negative. This can be achieved by using counter-clockwise order of nodes.
+To be able to invert the _Jacobian_, its determinant cannot be 0 or negative. This can be achieved by using counter-clockwise order of nodes.
 
 Other popular quadrilateral elements are eight-node isoparametric elements. Their shape functions are:
 
-[[math label26]]
-H_{1}=\frac{1}{4}(1-\xi)(1-\eta)(-1-\xi-\eta)
-[[/math]]
+<a name="label26"></a>
+$$H_{1}=\frac{1}{4}(1-\xi)(1-\eta)(-1-\xi-\eta)$$
+<div style="text-align: right"> (26) </div>
 
-[[math label27]]
-H_{2}=\frac{1}{4}(1+\xi)(1-\eta)(-1+\xi-\eta)
-[[/math]]
+<a name="label27"></a>
+$$H_{2}=\frac{1}{4}(1+\xi)(1-\eta)(-1+\xi-\eta)$$
+<div style="text-align: right"> (27) </div>
 
-[[math label28]]
-H_{3}=\frac{1}{4}(1+\xi)(1+\eta)(-1+\xi+\eta)
-[[/math]]
+<a name="label28"></a>
+$$H_{3}=\frac{1}{4}(1+\xi)(1+\eta)(-1+\xi+\eta)$$
+<div style="text-align: right"> (28) </div>
 
-[[math label29]]
-H_{4}=\frac{1}{4}(1-\xi)(1+\eta)(-1-\xi+\eta)
-[[/math]]
+<a name="label29"></a>
+$$H_{4}=\frac{1}{4}(1-\xi)(1+\eta)(-1-\xi+\eta)$$
+<div style="text-align: right"> (29) </div>
 
-[[math label30]]
-H_{5}=\frac{1}{2}\left(1-\xi^{2}\right)(1-\eta)
-[[/math]]
+<a name="label30"></a>
+$$H_{5}=\frac{1}{2}\left(1-\xi^{2}\right)(1-\eta)$$
+<div style="text-align: right"> (30) </div>
 
-[[math label31]]
-H_{6}=\frac{1}{2}(1+\xi)\left(1-\eta^{2}\right)
-[[/math]]
+<a name="label31"></a>
+$$H_{6}=\frac{1}{2}(1+\xi)\left(1-\eta^{2}\right)$$
+<div style="text-align: right"> (31) </div>
 
-[[math label32]]
-H_{7}=\frac{1}{2}\left(1-\xi^{2}\right)(1+\eta)
-[[/math]]
+<a name="label32"></a>
+$$H_{7}=\frac{1}{2}\left(1-\xi^{2}\right)(1+\eta)$$
+<div style="text-align: right"> (32) </div>
 
-[[math label33]]
-H_{8}=\frac{1}{2}(1-\xi)\left(1-\eta^{2}\right)
-[[/math]]
+<a name="label33"></a>
+$$H_{8}=\frac{1}{2}(1-\xi)\left(1-\eta^{2}\right)$$
+<div style="text-align: right"> (33) </div>
 
-[[=image Figure%20II-5.png size="small"]]
-//Figure II-5 Eight-node quadrilateral element in natural coordinate (Source: Young W. K., Hyochoong B.)//
+{{< figure src="Figure%20II-5.png" caption="Eight-node quadrilateral element in natural coordinate (Source: Young W. K., Hyochoong B.)" numbered="true" width="300">}}
 
-# II.2 Triangular elements
+
+## II.2 Triangular elements
 ---
 
-[[=image Figure%20II-6.png size="small"]]
-//Figure II-6 Triangular element in natural coordinate//
+{{< figure src="Figure%20II-6.png" caption="Triangular element in natural coordinate" numbered="true" width="300">}}
 
-As quadrilateral elements isoparametric elements, triangular isoparametric elements can be defined also. In terms of natural coordinate system, we have the shape functions as
+As quadrilateral elements isoparametric elements, triangular isoparametric elements can be defined also. In terms of _natural_ coordinate system, we have the shape functions as
 
-[[math label34]]
-H_{1}=1-\xi-\eta
-[[/math]]
+<a name="label34"></a>
+$$H_{1}=1-\xi-\eta$$
+<div style="text-align: right"> (34) </div>
 
-[[math label35]]
-H_{2}=\xi
-[[/math]]
+<a name="label35"></a>
+$$H_{2}=\xi$$
+<div style="text-align: right"> (35) </div>
 
-[[math label36]]
-H_{3}=\eta
-[[/math]]
+<a name="label36"></a>
+$$H_{3}=\eta$$
+<div style="text-align: right"> (36) </div>
 
 In case of the quadratic higher order triangle we have the shape functions written as
 
-[[math label37]]
-H_{1}=(1-\xi-\eta)(1-2 \xi-2 \eta)
-[[/math]]
+<a name="label37"></a>
+$$H_{1}=(1-\xi-\eta)(1-2 \xi-2 \eta)$$
+<div style="text-align: right"> (37) </div>
 
-[[math label38]]
-H_{2}=\xi(2 \xi-1)
-[[/math]]
+<a name="label38"></a>
+$$H_{1}=(1-\xi-\eta)(1-2 \xi-2 \eta)$$
+<div style="text-align: right"> (38) </div>
 
-[[math label39]]
-H_{3}=\eta(2 \eta-1)
-[[/math]]
+<a name="label39"></a>
+$$H_{3}=\eta(2 \eta-1)$$
+<div style="text-align: right"> (39) </div>
 
-[[math label40]]
-H_{4}=4 \xi(1-\xi-\eta)
-[[/math]]
+<a name="label40"></a>
+$$H_{4}=4 \xi(1-\xi-\eta)$$
+<div style="text-align: right"> (40) </div>
 
-[[math label41]]
-H_{5}=4 \xi \eta
-[[/math]]
+<a name="label41"></a>
+$$H_{5}=4 \xi \eta$$
+<div style="text-align: right"> (41) </div>
 
-[[math label42]]
-H_{2}=4 \eta(1-\xi-\eta)
-[[/math]]
+<a name="label42"></a>
+$$H_{2}=4 \eta(1-\xi-\eta)$$
+<div style="text-align: right"> (42) </div>
 
-[[=image Figure%20II-7.png size="small"]]
-//Figure II-7 Quadratic six-node triangular element in natural coordinate (Source:Young K. W., Hyochoong B.)//
+{{< figure src="Figure%20II-7.png" caption="Quadratic six-node triangular element in natural coordinate (Source:Young K. W., Hyochoong B.)" numbered="true" width="300">}}
 
-# II.3 Gauss integration
+## II.3 Gauss integration
 ---
 
 When we use analytical integration to express the theorem of virtual work during the evaluation of the stiffness matrix of an element of for ex. a beam, we have an easy task, because the beam element is unidimensional. However, when the number of elements is large, and their geometrical shape is general, as is the case of most of the finite element application, the use of analytical integration becomes difficult or outright impossible, and furthermore not well suited for coding. In this case we can use numerical integration.
@@ -323,72 +306,75 @@ Gauss-Legendre is such a numerical integration method, the most widely used and 
 
 An integral is defined as:
 
-[[math label43]]
-\int_{a}^{b} f(x) d x=\lim _{n \rightarrow \infty} \sum_{i=1}^{n} f\left(x_{i}\right) d x_{i}
-[[/math]]
+<a name="label43"></a>
+$$\int_{a}^{b} f(x) d x=\lim _{n \rightarrow \infty} \sum_{i=1}^{n} f\left(x_{i}\right) d x_{i}$$
+<div style="text-align: right"> (43) </div>
 
 The basic idea is to replace the continuous integral with a series of finite sums.
 
-[[=image Figure%20II-8.png size="small"]]
-//Figure II-8 Gauss-Lagrange integration (Source: Young K. W, Hyochoong B.)//
+{{< figure src="Figure%20II-8.png" caption="Gauss-Lagrange integration (Source: Young K. W, Hyochoong B.)" numbered="true" width="300">}}
 
-We can approximate ([[eref label43]]) as
+We can approximate ([43](#label43)) as
 
-[[math label44]]
-\int_{a}^{a} f(x) d x \approx \sum_{i=1}^{N} f\left(x_{i}\right) \Delta x_{i}
-[[/math]]
+<a name="label44"></a>
+$$\int_{a}^{a} f(x) d x \approx \sum_{i=1}^{N} f\left(x_{i}\right) \Delta x_{i}$$
+<div style="text-align: right"> (44) </div>
 
-where [[$ N $]] is a finite number.
+where $ N $ is a finite number.
 
 Rewritten in general way,
 
-[[math label45]]
-\int_{a}^{a} f(x) d x \approx \sum_{i=1}^{M} f\left(x_{i}\right) W_{i}
-[[/math]]
+<a name="label45"></a>
+$$\int_{a}^{a} f(x) d x \approx \sum_{i=1}^{M} f\left(x_{i}\right) W_{i}$$
+<div style="text-align: right"> (45) </div>
 
-where [[$ M $]] is the number of integration points, [[$ x_{i} $]] is the integration point (sampling point) and [[$ W_{i} $]] is the weighting coefficient. The weighting coefficient is the width of the rectangular strip whose height is [[$ f\left(x_{i}\right) $]]. Any numerical integration may be expressed in this form. To derive the standard values for sampling points and weights, the integration domain is normalized such that [[$ -1 \leq x \leq 1 $]]. Gauss-Legendre quadrature is useful for integrating polynomial functions. It can integrate polynomial function of order 2n-1 using n-point quadrature exactly. Sampling points and weighting coefficients are given in the following tables.
+where $ M $ is the number of integration points, $ x_{i} $ is the integration point (sampling point) and $ W_{i} $ is the weighting coefficient. The weighting coefficient is the width of the rectangular strip whose height is $ f\left(x_{i}\right) $. Any numerical integration may be expressed in this form. To derive the standard values for sampling points and weights, the integration domain is normalized such that $ -1 \leq x \leq 1 $. Gauss-Legendre quadrature is useful for integrating polynomial functions. It can integrate polynomial function of order 2n-1 using n-point quadrature exactly. Sampling points and weighting coefficients are given in the following tables.
 
 If the integrand is not a polynomial expression, Gauss quadrature an approximate result. In this case, an optimal number of integration points should be selected in consideration of accuracy and computational cost.
 
 The quadrature rule can be extended for multi-dimensional integration. For a 2-D example of a normalized domain:
 
-[[math label46]]
-\begin{aligned} & \int_{-1}^{1} \int_{-1}^{1} f(\xi, \eta) d \xi d \eta=\int_{-1}^{1} \sum_{i=1}^{M_{1}} W_{i} f\left(\xi_{i}, \eta\right) d \eta \\=& \sum_{j=1}^{M_{2}} W_{j} \sum_{I=1}^{M_{1}} W_{i} f\left(\xi_{i}, \eta_{i}\right)=\sum_{i=1}^{M_{1}} \sum_{j=1}^{M_{2}} W_{i} W_{j} f\left(\xi_{i}, \eta_{i}\right) \end{aligned}
-[[/math]]
+<a name="label46"></a>
+$$
+\begin{aligned}
+& \int_{-1}^{1} \int_{-1}^{1} f(\xi, \eta) d \xi d \eta=\int_{-1}^{1} \sum_{i=1}^{M_{1}} W_{i} f\left(\xi_{i}, \eta\right) d \eta \\\\
+=& \sum_{j=1}^{M_{2}} W_{j} \sum_{I=1}^{M_{1}} W_{i} f\left(\xi_{i}, \eta_{i}\right)=\sum_{i=1}^{M_{1}} \sum_{j=1}^{M_{2}} W_{i} W_{j} f\left(\xi_{i}, \eta_{i}\right)
+\end{aligned}
+$$
+<div style="text-align: right"> (46) </div>
 
-[[=image Figure%20II-9.png size="small"]]
-//Figure II-9 Sampling point and weights in Gauss quadrature (Source: Young K. W., Hyochoong B.)//
+{{< figure src="Figure%20II-9.png" caption="Sampling point and weights in Gauss quadrature (Source: Young K. W., Hyochoong B.)" numbered="true" width="300">}}
 
 As we have seen Gauss quadrature evaluates single integrals between −1 and +1, double integrals over a quadrilateral, and triple integral over a cube. For example, to evaluate an integral over a quadrilateral, it is necessary to transform the quadrilateral into a reference element over which the integration can be carried out.
 
-Evaluating the integral [[$ \int_{A} f(x, y) d A $]] over a quadrilateral area looks like:
+Evaluating the integral $ \int_{A} f(x, y) dA $ over a quadrilateral area looks like:
 
-Using isoparametric elements, writing [[$ x $]] and [[$ y $]] in terms of [[$ \xi $]] and [[$ \eta $]] as
+Using isoparametric elements, writing $ x $ and $ y $ in terms of $ \xi $ and $ \eta $ as
 
-[[math label47]]
-x(\xi, \eta)=N_{1}(\xi, \eta) x_{1}+N_{2}(\xi, \eta) x_{2}+N_{3}(\xi, \eta) x_{3}+N_{4}(\xi, \eta) x_{4}
-[[/math]]
+<a name="label47"></a>
+$$x(\xi, \eta)=N_{1}(\xi, \eta) x_{1}+N_{2}(\xi, \eta) x_{2}+N_{3}(\xi, \eta) x_{3}+N_{4}(\xi, \eta) x_{4}$$
+<div style="text-align: right"> (47) </div>
 
-[[math label48]]
-y(\xi, \eta)=N_{1}(\xi, \eta) y_{1}+N_{2}(\xi, \eta) y_{2}+N_{3}(\xi, \eta) y_{3}+N_{4}(\xi, \eta) y_{4}
-[[/math]]
+<a name="label48"></a>
+$$y(\xi, \eta)=N_{1}(\xi, \eta) y_{1}+N_{2}(\xi, \eta) y_{2}+N_{3}(\xi, \eta) y_{3}+N_{4}(\xi, \eta) y_{4}$$
+<div style="text-align: right"> (48) </div>
 
-shape functions are denoted in the place of [[$ H_{i} $]] with [[$ N_{i}(\xi, \eta) $]] and are given in Chapter II.1.
+shape functions are denoted in the place of $ H_{i} $ with $ N_{i}(\xi, \eta) $ and are given in Chapter II.1.
 
-Using the equation of the Jacobian of the transformation to express elementary area [[$ d A = dxdy $]] in terms of the corresponding elementary area [[$ d \xi d \eta $]] of the reference element
+Using the equation of the _Jacobian_ of the transformation to express elementary area $ d A = dxdy $ in terms of the corresponding elementary area $ d \xi d \eta $ of the reference element
 
-[[math label49]]
-d x d y=\operatorname{det}[J] d \xi d \eta
-[[/math]]
+<a name="label49"></a>
+$$d x d y=\operatorname{det}[J] d \xi d \eta$$
+<div style="text-align: right"> (49) </div>
 
 Constructing nodal approximation for the function using its nodal values
 
-[[math label50]]
-f(\xi, \eta)=\sum_{i=1}^{n} N_{i}(\xi, \eta) f_{i}
-[[/math]]
+<a name="label50"></a>
+$$f(\xi, \eta)=\sum_{i=1}^{n} N_{i}(\xi, \eta) f_{i}$$
+<div style="text-align: right"> (50) </div>
 
 Finally, we get the integral
 
-[[math label51]]
-I=\int_{-1}^{+1} \int_{-1}^{+1}\left(\sum_{i=1}^{n} N_{i}(\xi, \eta) f_{i}\right) \operatorname{det}[J] d \xi d \eta
-[[/math]]
+<a name="label51"></a>
+$$I=\int_{-1}^{+1} \int_{-1}^{+1}\left(\sum_{i=1}^{n} N_{i}(\xi, \eta) f_{i}\right) \operatorname{det}[J] d \xi d \eta$$
+<div style="text-align: right"> (51) </div>
