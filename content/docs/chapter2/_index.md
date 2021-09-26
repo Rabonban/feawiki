@@ -168,13 +168,235 @@ $$\frac{\partial}{\partial \eta}=\frac{\partial}{\partial x} \frac{\partial x}{\
 Rewriting these in matrix form:
 
 <a name="label19"></a>
-{{< figure src="Eq19.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="left left" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (19) </div>
 
 The derivative shown of the left side column vector is called local derivative, while in the right side it is called global derivative. The square matrix is called the _Jacobian_ and is denoted as for a 2-D case:
 
 <a name="label20"></a>
-{{< figure src="Eq20.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mo stretchy="false">[</mo>
+  <mi>J</mi>
+  <mo stretchy="false">]</mo>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="left left" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>J</mi>
+            <mrow>
+              <mn>11</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>J</mi>
+            <mrow>
+              <mn>12</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>J</mi>
+            <mrow>
+              <mn>21</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>J</mi>
+            <mrow>
+              <mn>22</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="left left" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (20) </div>
 
 The _Jacobian_ can be easily extended for three-dimensional domain too.
@@ -182,19 +404,308 @@ The _Jacobian_ can be easily extended for three-dimensional domain too.
 The inverse of the _Jacobian_ is denoted as:
 
 <a name="label21"></a>
-{{< figure src="Eq21.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mo stretchy="false">[</mo>
+  <mi>R</mi>
+  <mo stretchy="false">]</mo>
+  <mo>=</mo>
+  <mo stretchy="false">[</mo>
+  <mi>J</mi>
+  <msup>
+    <mo stretchy="false">]</mo>
+    <mrow>
+      <mo>−</mo>
+      <mn>1</mn>
+    </mrow>
+  </msup>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="left left" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>11</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>12</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>21</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>22</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (21) </div>
 
 We can rewrite Eq. ([19](#label19)) as
 
 <a name="label22"></a>
-{{< figure src="Eq22.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="center center" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>11</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>12</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>21</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>22</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (22) </div>
 
 Derivatives of the shape functions with respect to $x$ and $y$ can be obtained from the above equation:
 
 <a name="label23"></a>
-{{< figure src="Eq23.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="center center" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>11</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>12</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>21</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>22</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (23) </div>
 
 To be able to invert the _Jacobian_, its determinant cannot be 0 or negative. This can be achieved by using counter-clockwise order of nodes.
@@ -202,13 +713,245 @@ To be able to invert the _Jacobian_, its determinant cannot be 0 or negative. Th
 Other popular quadrilateral elements are eight-node isoparametric elements. Their shape functions are:
 
 <a name="label24"></a>
-{{< figure src="Eq24.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="left left" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>11</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>12</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>21</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>22</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mi mathvariant="normal">∂</mi>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (24) </div>
 
 Derivatives of the shape functions with respect to $x$ and $y$ can be obtained from the above equation:
 
 <a name="label25"></a>
-{{< figure src="Eq25.png" numbered="false">}}
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>x</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>y</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">[</mo>
+    <mtable columnalign="center center" columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>11</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>12</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>21</mn>
+            </mrow>
+          </msub>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>22</mn>
+            </mrow>
+          </msub>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">]</mo>
+  </mrow>
+  <mrow data-mjx-texclass="INNER">
+    <mo data-mjx-texclass="OPEN">{</mo>
+    <mtable columnspacing="1em" rowspacing="4pt">
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>ξ</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mfrac>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <msub>
+                <mi>H</mi>
+                <mrow>
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi mathvariant="normal">∂</mi>
+              <mi>η</mi>
+            </mrow>
+          </mfrac>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo data-mjx-texclass="CLOSE">}</mo>
+  </mrow>
+</math>
 <div style="text-align: right"> (25) </div>
 
 To be able to invert the _Jacobian_, its determinant cannot be 0 or negative. This can be achieved by using counter-clockwise order of nodes.
